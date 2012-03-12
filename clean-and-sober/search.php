@@ -17,15 +17,16 @@ get_header(); ?>
 					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'clean-and-sober' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 				</header>
 
-				<?php clean_and_sober_content_nav( 'nav-above' ); ?>
-
 				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php get_template_part( 'content', 'search' ); ?>
-
-				<?php endwhile; ?>
-
+				<div>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<div class="tile">
+							<p class="timestamp"><?php the_time('F jS, Y') ?></p>
+							<h2 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+							<p class="body"><?php echo get_the_excerpt(); ?></p>
+						</div>
+					<?php endwhile; ?>
+				</div>
 				<?php clean_and_sober_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>

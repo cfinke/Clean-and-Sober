@@ -51,12 +51,7 @@
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 
-		<nav role="navigation" class="site-navigation main-navigation">
-			<h1 class="assistive-text"><?php _e( 'Menu', 'clean-and-sober' ); ?></h1>
-			<div class="assistive-text skip-link"><a href="#content" title="<?php esc_attr_e( 'Skip to content', 'clean-and-sober' ); ?>"><?php _e( 'Skip to content', 'clean-and-sober' ); ?></a></div>
-
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav>
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</header><!-- #masthead .site-header -->
 
 	<div id="main">

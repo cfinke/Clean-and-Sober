@@ -17,6 +17,9 @@ if ( ! function_exists( 'clean_and_sober_content_nav' ) ):
 function clean_and_sober_content_nav( $nav_id ) {
 	global $wp_query;
 
+	if ( 'nav-above' == $nav_id && !get_previous_posts_link() )
+		return;
+
 	$nav_class = 'site-navigation paging-navigation';
 	if ( is_single() )
 		$nav_class = 'site-navigation post-navigation';

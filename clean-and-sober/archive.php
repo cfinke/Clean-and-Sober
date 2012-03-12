@@ -69,21 +69,16 @@ get_header(); ?>
 
 				<?php rewind_posts(); ?>
 
-				<?php clean_and_sober_content_nav( 'nav-above' ); ?>
-
 				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
-
+				<div>
+					<?php while ( have_posts() ) : the_post(); ?>
+						<div class="tile">
+							<p class="timestamp"><?php the_time('F jS, Y') ?></p>
+							<h2 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+							<p class="body"><?php echo get_the_excerpt(); ?></p>
+						</div>
+					<?php endwhile; ?>
+				</div>
 				<?php clean_and_sober_content_nav( 'nav-below' ); ?>
 
 			<?php else : ?>
@@ -94,7 +89,7 @@ get_header(); ?>
 					</header><!-- .entry-header -->
 
 					<div class="entry-content">
-						<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'clean-and-sober' ); ?></p>
+						<p><?php _e( "It seems we can't find what you're looking for. Perhaps searching can help.", 'clean-and-sober' ); ?></p>
 						<?php get_search_form(); ?>
 					</div><!-- .entry-content -->
 				</article><!-- #post-0 -->
