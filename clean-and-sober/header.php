@@ -51,7 +51,11 @@
 			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
 		</hgroup>
 
-		<?php dynamic_sidebar( 'sidebar-1' ); ?>
+		<?php if ( ! is_singular() ) { ?>
+			<div class="bio">
+				<?php dynamic_sidebar( 'sidebar-1' ); ?>
+			</div>
+		<?php } ?>
 	</header><!-- #masthead .site-header -->
 
 	<div id="main">
