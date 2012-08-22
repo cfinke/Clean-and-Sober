@@ -735,7 +735,7 @@ nav:after, #content:after, nav .menu:after {
 	text-decoration: none;
 }
 
-#masthead aside {
+.bio {
 	width: 100%;
 	border-top: 1px solid #ccc;
 	padding: 18px 0 0;
@@ -777,8 +777,11 @@ nav:after, #content:after, nav .menu:after {
 	margin-bottom: 18px;
 }
 
-.entry-content h2, .entry-content h3, #reply-title {
+.entry-content h2, .entry-content h3 {
 	border-bottom: 1px solid #CCCCCC;
+}
+
+#reply-title {
 	margin-bottom: 8px;
 	font-size: 24px;
 }
@@ -848,7 +851,7 @@ h3#comments {
     height: 30px;
     margin: 0 0 0 12px;
 }
-img.avatar {
+#comments img.avatar {
     background: #fff;
     margin-bottom: 14px;
     border: 1px solid #ddd;
@@ -905,4 +908,75 @@ a.comment-reply-link {
 
 .entry-content img {
 	border: 1px solid #eee;
+}
+
+.bio {
+	text-align: left;
+}
+
+.bio > p {
+	width: 570px;
+	float: left; 
+	padding: 0 18px 0 18px; 
+	margin: 0;
+}
+
+.bio > p img {
+	width: 80px;
+	height: 80px;
+	margin-right: 20px;
+	border: 1px solid rgb(102, 102, 102);
+	float: left;
+}
+
+@media all and (max-width: 759px) {
+	* {
+		box-sizing: border-box;
+		max-width: 100%;
+	}
+
+	#page {
+		width: 100%;
+		padding: 1em;
+	}
+
+	.site-title {
+		margin-top: 10px;
+		font-size: 24px;
+		line-height: 30px;
+	}
+
+	.site-description {
+		display: none;
+		font-size: 18px;
+		font-variant: small-caps;
+	}
+
+	.tile {
+		clear: both;
+		width: 100%;
+		border-width: 0 0 1px 0 !important;
+	}
+
+	.bio > p {
+		width: auto; 
+		float: none;
+		padding: 10px;
+	}
+
+	#masthead aside {
+		padding: 0;
+	}
+
+	.bio > p img {
+		display: none;
+	}
+
+	.bio div p {
+		display: none;
+	}
+
+	nav > div {
+		padding: 0 20px;
+	}
 }

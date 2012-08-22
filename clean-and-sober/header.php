@@ -52,9 +52,7 @@
 		</hgroup>
 
 		<?php if ( ! is_singular() ) { ?>
-			<div class="bio">
-				<?php dynamic_sidebar( 'sidebar-1' ); ?>
-			</div>
+			<?php get_template_part( 'bio' ); ?>
 		<?php } ?>
 	</header><!-- #masthead .site-header -->
 

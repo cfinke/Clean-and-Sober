@@ -19,9 +19,7 @@ get_header(); ?>
 
 				<?php clean_and_sober_content_nav( 'nav-below' ); ?>
 
-				<div class="bio">
-					<?php dynamic_sidebar( 'sidebar-1' ); ?>
-				</div>
+				<?php get_template_part( 'bio' ); ?>
 
 				<?php
 					// If comments are open or we have at least one comment, load up the comment template

@@ -20,9 +20,7 @@ get_header(); ?>
 
 					<?php get_template_part( 'content', 'page' ); ?>
 
-					<div class="bio">
-						<?php dynamic_sidebar( 'sidebar-1' ); ?>
-					</div>
+					<?php get_template_part( 'bio' ); ?>
 
 					<?php comments_template( '', true ); ?>
 
