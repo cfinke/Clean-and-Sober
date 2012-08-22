@@ -1,7 +1,7 @@
 <?php
 /**
- * @package _s
- * @since _s 1.0
+ * @package Clean and Sober
+ * @since Clean and Sober 1.0
  */
 ?>
 
