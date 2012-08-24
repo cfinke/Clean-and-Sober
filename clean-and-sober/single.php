@@ -1,36 +1,26 @@
-<?php
-/**
- * The Template for displaying all single posts.
- *
- * @package Clean and Sober
- * @since Clean and Sober 1.0
- */
+<?php get_header(); ?>
+<div id="primary" class="site-content">
+	<div id="content" role="main">
 
-get_header(); ?>
+		<?php while ( have_posts() ) { the_post(); ?>
 
-		<div id="primary" class="site-content">
-			<div id="content" role="main">
+			<?php clean_and_sober_content_nav( 'nav-above' ); ?>
 
-			<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( 'content', 'single' ); ?>
 
-				<?php clean_and_sober_content_nav( 'nav-above' ); ?>
+			<?php clean_and_sober_content_nav( 'nav-below' ); ?>
 
-				<?php get_template_part( 'content', 'single' ); ?>
+			<?php get_template_part( 'bio' ); ?>
 
-				<?php clean_and_sober_content_nav( 'nav-below' ); ?>
+			<?php
 
-				<?php get_template_part( 'bio' ); ?>
+			if ( comments_open() || '0' != get_comments_number() )
+				comments_template( '', true );
 
-				<?php
-					// If comments are open or we have at least one comment, load up the comment template
-					if ( comments_open() || '0' != get_comments_number() )
-						comments_template( '', true );
-				?>
+			?>
 
-			<?php endwhile; // end of the loop. ?>
+		<?php } ?>
 
-			</div><!-- #content -->
-		</div><!-- #primary .site-content -->
-
-<?php get_sidebar(); ?>
+	</div>
+</div>
 <?php get_footer(); ?>
