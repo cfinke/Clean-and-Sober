@@ -912,6 +912,7 @@ a.comment-reply-link {
 
 .bio {
 	text-align: left;
+	min-height: 100px;
 }
 
 .bio > p {
@@ -969,10 +970,6 @@ a.comment-reply-link {
 	}
 
 	.bio > p img {
-		display: none;
-	}
-
-	.bio div p {
 		display: none;
 	}
 

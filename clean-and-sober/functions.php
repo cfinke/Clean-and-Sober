@@ -6,13 +6,67 @@
  * @since Clean and Sober 1.0
  */
 
+add_action( 'admin_init', 'theme_options_init' );
+add_action( 'admin_menu', 'theme_options_add_page' ); 
+
+function theme_options_init(){
+	register_setting( 'clean_and_sober_options', 'clean_and_sober_default_author_id', 'intval' );
+} 
+
+function theme_options_add_page() {
+	add_theme_page( __( 'Theme Options', 'sampletheme' ), __( 'Theme Options', 'sampletheme' ), 'edit_theme_options', 'theme_options', 'theme_options_do_page' );
+}
+
+function theme_options_do_page() {
+	?>
+	<div class="wrap">
+		<?php screen_icon(); echo "<h2>". __( 'Clean and Sober Theme Options', 'clean-and-sober' ) . "</h2>"; ?>
+	
+		<?php if ( isset( $_REQUEST['settings-updated'] ) && $_REQUEST['settings-updated'] ) { ?>
+			<div id="message" class="updated">
+				<p><strong><?php _e( 'Options saved', 'clean-and-sober' ); ?></strong></p>
+			</div>
+		<?php } ?>
+		<form method="post" action="options.php">
+			<?php settings_fields( 'clean_and_sober_options' ); ?>  
+
+			<table class="form-table">
+				<tr>
+					<th>
+						<label for="clean_and_sober_default_author_id"><?php _e( 'Default user for header bio:', 'clean-and-sober' ); ?></label>
+						<p>
+							<span class="description"><?php _e( "On pages that don't have an author (search pages, archives, etc.), this user's bio will be shown at the top of the page. To disable, set to 'None.'", 'clean-and-sober' ); ?></span>
+						</p>
+					</th>
+					<td style="vertical-align: top;">
+						<?php
+						
+						wp_dropdown_users( array(
+								'show_option_none' => __( 'None', 'clean-and-sober' ),
+								'id' => 'clean_and_sober_default_author_id',
+								'name' => 'clean_and_sober_default_author_id',
+								'selected' => get_option( 'clean_and_sober_default_author_id' )
+						) );
+						
+						?>
+					</td>
+				</tr>
+			</table>
+			<p class="submit">
+				<input type="submit" class="button-primary" value="<?php _e( 'Save Options', 'customtheme' ); ?>" />
+			</p>
+		</form>
+	</div>
+	<?php
+}
+	
 /**
  * Set the content width based on the theme's design and stylesheet.
  *
  * @since Clean and Sober 1.0
  */
 if ( ! isset( $content_width ) )
-	$content_width = 640; /* pixels */
+	$content_width = 760; /* pixels */
 
 if ( ! function_exists( 'clean_and_sober_setup' ) ):
 /**
@@ -80,23 +134,6 @@ endif; // clean_and_sober_setup
 add_action( 'after_setup_theme', 'clean_and_sober_setup' );
 
 /**
- * Register widgetized area and update sidebar with default widgets
- *
- * @since Clean and Sober 1.0
- */
-function clean_and_sober_widgets_init() {
-	register_sidebar( array(
-		'name' => __( 'Sidebar', 'clean-and-sober' ),
-		'id' => 'sidebar-1',
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-		'after_widget' => "</aside>",
-		'before_title' => '<h1 class="widget-title">',
-		'after_title' => '</h1>',
-	) );
-}
-add_action( 'widgets_init', 'clean_and_sober_widgets_init' );
-
-/**
  * Enqueue scripts and styles
  */
 function clean_and_sober_scripts() {
@@ -114,7 +151,42 @@ function clean_and_sober_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'clean_and_sober_scripts' );
 
-/**
- * Implement the Custom Header feature
- */
-//require( get_template_directory() . '/inc/custom-header.php' );
+add_action( 'show_user_profile', 'clean_and_sober_contact_links' );
+add_action( 'edit_user_profile', 'clean_and_sober_contact_links' );
+
+function clean_and_sober_contact_links( $user ) { ?>
+	<h3>Contact links for your bio</h3>
+
+	<table class="form-table">
+		<tr>
+			<th rowspan="3">
+				<span class="description">Enter HTML for contact links that will appear next to your bio.</span>
+			</th>
+			<td>
+				<input size="50" type="text" name="cas_contact_1" value="<?php esc_attr_e( get_the_author_meta( 'cas_contact_1', $user->ID ) ); ?>" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input size="50" type="text" name="cas_contact_2" value="<?php esc_attr_e( get_the_author_meta( 'cas_contact_2', $user->ID ) ); ?>" />
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input size="50" type="text" name="cas_contact_3" value="<?php esc_attr_e( get_the_author_meta( 'cas_contact_3', $user->ID ) ); ?>" />
+			</td>
+		</tr>
+	</table>
+<?php }
+
+add_action( 'personal_options_update', 'clean_and_sober_save_contact_links' );
+add_action( 'edit_user_profile_update', 'clean_and_sober_save_contact_links' );
+
+function clean_and_sober_save_contact_links( $user_id ) {
+	if ( ! current_user_can( 'edit_user', $user_id ) )
+		return false;
+
+	update_usermeta( $user_id, 'cas_contact_1', $_POST['cas_contact_1'] );
+	update_usermeta( $user_id, 'cas_contact_2', $_POST['cas_contact_2'] );
+	update_usermeta( $user_id, 'cas_contact_3', $_POST['cas_contact_3'] );
+}
