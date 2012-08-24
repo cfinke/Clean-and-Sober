@@ -9,7 +9,9 @@
 	<header class="entry-header">
 		<p class="timestamp"><?php the_time('l, F jS, Y') ?></p>
         <h1 class="entry-title"><?php the_title(); ?></h1>
-        <p class="body"><?php echo get_the_excerpt(); ?></p>
+		<?php if ( ! empty( $post->post_excerpt ) ) { ?>
+			<p class="body"><?php echo get_the_excerpt(); ?></p>
+		<? } ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">

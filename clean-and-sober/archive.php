@@ -69,13 +69,15 @@ get_header(); ?>
 
 				<?php rewind_posts(); ?>
 
-				<?php /* Start the Loop */ ?>
+		
 				<div>
 					<?php while ( have_posts() ) : the_post(); ?>
 						<div class="tile">
 							<p class="timestamp"><?php the_time('F jS, Y') ?></p>
 							<h2 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-							<p class="body"><?php echo get_the_excerpt(); ?></p>
+							<?php if ( ! empty( $post->post_excerpt ) ) { ?>
+								<p class="body"><?php echo get_the_excerpt(); ?></p>
+							<? } ?>
 						</div>
 					<?php endwhile; ?>
 				</div>
@@ -99,5 +101,4 @@ get_header(); ?>
 			</div><!-- #content -->
 		</section><!-- #primary .site-content -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
