@@ -784,8 +784,43 @@ article.post {
 	margin-bottom: 18px;
 }
 
-.entry-content h2, .entry-content h3 {
-	border-bottom: 1px solid #CCCCCC;
+.entry-content h1, .entry-content h2, .entry-content h3, .entry-content h4, .entry-content h5, .entry-content h6, .entry-content h7 {
+	border-bottom: 1px dotted #a0a0a0;
+	margin-bottom: 8px;
+}	
+
+.entry-content h1 {
+	font-size: 32px;
+}
+
+.entry-content h2 {
+	font-size: 28px;
+}
+
+.entry-content h3 {
+	font-size: 24px;
+}
+
+.entry-content h4 {
+	font-size: 20px;
+}
+
+.entry-content h5, .entry-content h6, .entry-content h7 {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.entry-content table {
+	font-family: "Courier New", "Monaco", monospace;
+	font-size: 14px;
+}
+
+.entry-content table tr:nth-child(even) {
+	background-color: #f0f3f0;
+}
+
+.entry-content td {
+	padding: 2px;
 }
 
 #reply-title {
