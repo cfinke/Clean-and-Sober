@@ -4,7 +4,7 @@
 
 		<?php if ( have_posts() ) { ?>
 			<?php while ( have_posts() ) { the_post(); ?>
-				<div class="tile">
+				<div <?php post_class( 'tile' ); ?>>
 					<p class="timestamp"><?php the_time('F jS, Y') ?></p>
 					<h2 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
 					<?php if ( ! empty( $post->post_excerpt ) ) { ?>
