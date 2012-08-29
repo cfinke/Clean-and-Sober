@@ -13,6 +13,11 @@ Tags: clean, book, simple
 
 /* =Reset
 -------------------------------------------------------------- */
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+}
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -465,9 +470,8 @@ a:active {
 
 .site-header img,
 .entry-content img,
-.comment-content img,
-.widget img {
-	max-width: 100%; /* Fluid images for posts, comments, and widgets */
+.comment-content img {
+	max-width: 100%; /* Fluid images for posts and comments */
 }
 .site-header img,
 .entry-content img,
@@ -579,12 +583,12 @@ code {
 	font-family: "Times New Roman", serif;
 	margin: 0 auto;
 	width: 760px;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 #masthead {
-	border-bottom: 1px solid #ccc;
-/*	margin-bottom: 12px;
-	padding-bottom: 12px;*/
 	text-align: center;
 }
 
@@ -605,6 +609,8 @@ code {
 .site-description {
 	color: #333;
 	font-size: 1.6em;
+	line-height: 1em;
+	margin-top: 6px;
 	text-transform: uppercase;
 }
 
@@ -649,25 +655,31 @@ nav:after, #content:after, nav .menu:after {
 	float: left;
 	padding: 16px;
 	text-align: center;
-	width: 345px;
-	min-height: 150px;
+	width: 377px;
+	min-height: 166px;
 }
 
 .tile:nth-child(odd) {
 	clear: left;
 	border-width: 1px 1px 0 0;
-	border-style: dotted;
-	border-color: #ccc;
+	border-style: solid;
+	border-color: #e0e0e0;
 }
 
 .tile:nth-child(even) {
-	border-width: 1px 0 0 0;
-	border-style: dotted;
-	border-color: #ccc;
+	border-width: 1px 0 0 1px;
+	border-style: solid;
+	border-color: #e0e0e0;
+	margin-left: -1px;
 }
 
 .tile:nth-child(1), .tile:nth-child(2) {
 	border-top-width: 0;
+}
+
+.tile:nth-child(odd):last-child {
+	width: 755px;
+	border-right-width: 0px;
 }
 
 .timestamp {
@@ -714,15 +726,25 @@ nav:after, #content:after, nav .menu:after {
 	text-decoration: none;
 }
 
-.bio {
-	width: 100%;
-	border-top: 1px solid #ccc;
-	padding: 18px 0 0;
-	margin: 12px 0 0;
+header hgroup {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 8px;
 }
 
-#masthead .widget p {
-	text-align: left;
+.bio {
+	width: 100%;
+	padding-top: 6px;
+	margin: 12px 0 0;
+	border-bottom: 1px solid #ccc;
+}
+
+article.no-results .entry-content {
+	margin-bottom: 1.5em;
+}
+
+article.post {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 1.5em;
 }
 
 .entry-header {
@@ -858,10 +880,6 @@ ol.commentlist cite {
 	text-align: right;
 }
 
-#comments {
-	border-top: 1px solid #ccc;
-}
-
 .comments-title {
 	margin-top: 12px;
 	margin-bottom: 8px;
@@ -869,7 +887,6 @@ ol.commentlist cite {
 }
 
 .commentlist li.bypostauthor {
-	border: 1px solid #22a222 !important;
 	background-color: #eefeee !important;
 	padding-left: 12px !important;
 	margin-bottom: 6px !important;
