@@ -915,6 +915,10 @@ a.comment-reply-link {
 	min-height: 100px;
 }
 
+.bio span {
+	display: block;
+}
+
 .bio > p {
 	width: 570px;
 	float: left; 
@@ -964,13 +968,18 @@ a.comment-reply-link {
 		float: none;
 		padding: 10px;
 	}
+	
+	.bio div p {
+		text-align: center;
+	}
+	
+	.bio span {
+		display: inline-block;
+		margin-right: 20px;
+	}
 
 	#masthead aside {
 		padding: 0;
-	}
-
-	.bio > p img {
-		display: none;
 	}
 
 	nav > div {

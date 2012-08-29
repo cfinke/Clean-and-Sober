@@ -28,14 +28,10 @@ if ( $authordata && get_the_author_meta( 'description' ) ) {
 					$contact_link = wp_kses( get_the_author_meta( 'cas_contact_' . $i ), array( 'a' => array( 'href' => array() ) ) );
 			
 					if ( $contact_link )
-						$contact_links[] = $contact_link;
+						?><span><?php echo $contact_link; ?></span><?php
 				}
 		
 				unset( $contact_link );
-		
-				if ( ! empty( $contact_links ) )
-					echo join( '<br />', $contact_links );
-		
 				unset( $contact_links );
 		
 				?>
