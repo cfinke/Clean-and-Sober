@@ -194,6 +194,12 @@ big {
 figure {
 	margin: 0;
 }
+q:before {
+	content: '“';
+}
+q:after {
+	content: '”';
+}
 table {
 	margin: 0 0 1.5em;
 	width: 100%;
