@@ -8,9 +8,9 @@
 
 			<?php get_template_part( 'content', 'single' ); ?>
 
-			<?php clean_and_sober_content_nav( 'nav-below' ); ?>
-
 			<?php get_template_part( 'bio' ); ?>
+
+			<?php clean_and_sober_content_nav( 'nav-below' ); ?>
 
 			<?php
 
