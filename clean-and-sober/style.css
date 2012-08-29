@@ -537,64 +537,22 @@ object {
 /* =Navigation
 ----------------------------------------------- */
 
+#content .post-navigation {
+	padding: 0 0 1.5em;
+	overflow: hidden;
+	border-bottom: 1px solid #ccc;
+}
 #content .site-navigation {
-	margin: 0 0 1.5em;
+	padding: .5em 0;
 	overflow: hidden;
 }
-#content .nav-previous {
-	float: left;
-	width: 50%;
-}
-#content .nav-next {
-	float: right;
-	text-align: right;
-	width: 50%;
-}
-
 /* =Comments
 ----------------------------------------------- */
 
 .bypostauthor {
 }
 
-/* =Widgets
------------------------------------------------ */
-
-.widget {
-	margin: 0 0 1.5em;
-}
-
-/* Search widget */
-#searchsubmit {
-	display: none;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**/
 
 a {
 	color: #008000;
@@ -953,6 +911,29 @@ a.comment-reply-link {
 	margin-right: 20px;
 	border: 1px solid rgb(102, 102, 102);
 	float: left;
+}
+
+nav > div {
+	width: 33%;
+	float: left;
+	text-align: center;
+}
+
+nav > div:first-child {
+	text-align: left;
+}
+
+nav > div:last-child {
+	text-align: right;
+}
+
+input[type=text] {
+	font-family: inherit;
+}
+
+#searchsubmit {
+	font-family: inherit;
+	padding: .3em .3em .3em;
 }
 
 @media all and (max-width: 759px) {
