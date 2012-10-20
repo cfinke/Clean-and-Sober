@@ -14,10 +14,12 @@
 		<? } ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'clean-and-sober' ), 'after' => '</div>' ) ); ?>
-	</div><!-- .entry-content -->
+	<?php if ( $post->post_content ) { ?>
+		<div class="entry-content">
+			<?php the_content(); ?>
+			<?php wp_link_pages( array( 'before' => '<div class="page-links">' . __( 'Pages:', 'clean-and-sober' ), 'after' => '</div>' ) ); ?>
+		</div><!-- .entry-content -->
+	<?php } ?>
 	
 	<footer class="entry-meta">
 		<?php if ( 'post' == get_post_type() ) { ?>

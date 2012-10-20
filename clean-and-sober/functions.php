@@ -139,7 +139,9 @@ add_action( 'after_setup_theme', 'clean_and_sober_setup' );
 function clean_and_sober_scripts() {
 	global $post;
 
+	wp_enqueue_style( 'reset', get_stylesheet_directory_uri() . '/reset.css' );
 	wp_enqueue_style( 'style', get_stylesheet_uri() );
+	wp_enqueue_style( 'responsive', get_stylesheet_directory_uri() . '/responsive.css' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -190,3 +192,21 @@ function clean_and_sober_save_contact_links( $user_id ) {
 	update_usermeta( $user_id, 'cas_contact_2', $_POST['cas_contact_2'] );
 	update_usermeta( $user_id, 'cas_contact_3', $_POST['cas_contact_3'] );
 }
+
+function clean_and_sober_default_title( $title ) {
+	if ( ! $title ) {
+		return __( '[Untitled]', 'clean-and-sober' );
+	}
+	
+	return $title;
+}
+
+add_filter( 'the_title', 'clean_and_sober_default_title' );
+
+function clean_and_sober_widgets() {
+	register_sidebar( array(
+		'id' => 'footer-widgets'
+	) );
+}
+
+add_action( 'widgets_init', 'clean_and_sober_widgets' );

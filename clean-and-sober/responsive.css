@@ -1,0 +1,52 @@
+@media all and (max-width: 759px) {
+	* {
+		box-sizing: border-box;
+		max-width: 100%;
+	}
+
+	#page {
+		width: 100%;
+		padding: 1em;
+	}
+
+	.site-title {
+		margin-top: 10px;
+		font-size: 24px;
+		line-height: 30px;
+	}
+
+	.site-description {
+		display: none;
+		font-size: 18px;
+		font-variant: small-caps;
+	}
+
+	.tile {
+		clear: both;
+		width: 100%;
+		border-width: 0 0 1px 0 !important;
+	}
+
+	.bio > p {
+		width: auto; 
+		float: none;
+		padding: 10px;
+	}
+	
+	.bio div p {
+		text-align: center;
+	}
+	
+	.bio span {
+		display: inline-block;
+		margin-right: 20px;
+	}
+
+	#masthead aside {
+		padding: 0;
+	}
+
+	nav > div {
+		padding: 0 20px;
+	}
+}

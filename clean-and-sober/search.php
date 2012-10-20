@@ -6,7 +6,7 @@
 				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'clean-and-sober' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header>
 
-			<div>
+			<div class="tiles">
 				<?php while ( have_posts() ) { the_post(); ?>
 					<div <?php post_class( 'tile' ); ?>>
 						<p class="timestamp"><?php the_time('F jS, Y') ?></p>
