@@ -334,7 +334,6 @@ body.single-format-aside .entry-header .entry-title {
 	.entry-content img,
 	img.size-full {
 		max-width: 100%;
-		/*width: auto; *//* Prevent stretching of full-size images with height and width attributes in IE8 */
 	}
 	.entry-content img.wp-smiley,
 	.comment-content img.wp-smiley {
@@ -489,12 +488,6 @@ nav:after, #content:after, nav .menu:after {
  * Comments
  */
 
-
-#comments {
-	/*border-top: 1px solid #ccc;*/
-}
-
-
 #reply-title {
 	margin-bottom: 8px;
 	font-size: 24px;
@@ -540,14 +533,12 @@ ul.children li {
 .commentlist .alt {
 }
 h3#comments {
-    /*border-top: 1px solid #dfdfdf;*/
     clear: both;
     font-family: Arial,  Helvetica,  sans-serif;
     font-size: 24px;
     padding-bottom: 10px;
     padding-top: 10px;
     border-right: none;
-   /* border-bottom: none;*/
     float: none;
     top: auto;
     left: auto;
