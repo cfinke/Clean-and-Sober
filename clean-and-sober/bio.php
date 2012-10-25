@@ -5,10 +5,9 @@ global $authordata;
 if ( ( ! is_singular() || ! isset( $authordata ) ) ) {
 	$old_authordata = $authordata;
 	$authordata = null;
-	
-	if ( get_option( 'clean_and_sober_default_author_id' ) ) {
-		$authordata = get_userdata( get_option( 'clean_and_sober_default_author_id' ) );
-	}
+
+	if ( get_theme_mod( 'default_author_id' ) > 0 )
+		$authordata = get_userdata( get_theme_mod( 'default_author_id' ) );
 }
 
 if ( $authordata && get_the_author_meta( 'description' ) ) {
@@ -21,19 +20,19 @@ if ( $authordata && get_the_author_meta( 'description' ) ) {
 		<div>
 			<p>
 				<?php
-		
+
 				$contact_links = array();
-		
+
 				for ( $i = 1; $i <= 3; $i++ ) {
 					$contact_link = wp_kses( get_the_author_meta( 'cas_contact_' . $i ), array( 'a' => array( 'href' => array() ) ) );
-			
+
 					if ( $contact_link )
 						?><span><?php echo $contact_link; ?></span><?php
 				}
-		
+
 				unset( $contact_link );
 				unset( $contact_links );
-		
+
 				?>
 			</p>
 		</div>
@@ -45,5 +44,3 @@ if ( isset( $old_authordata ) ) {
 	$authordata = $old_authordata;
 	unset( $old_authordata );
 }
-
-?>

@@ -16,7 +16,6 @@
 			</div>
 
 			<?php clean_and_sober_content_nav( 'nav-below' ); ?>
-
 		<?php } elseif ( current_user_can( 'edit_posts' ) ) { ?>
 			<article id="post-0" class="post no-results not-found">
 				<header class="entry-header">
@@ -27,10 +26,7 @@
 					<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'clean-and-sober' ), admin_url( 'post-new.php' ) ); ?></p>
 				</div>
 			</article>
-
 		<?php } ?>
-
 	</div>
 </div>
-
 <?php get_footer(); ?>

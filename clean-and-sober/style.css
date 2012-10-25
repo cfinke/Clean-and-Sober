@@ -5,9 +5,11 @@ Author: Christopher Finke
 Author URI: http://www.chrisfinke.com/
 Description: A clean theme, like reading a book.
 Version: 1.0
-License: GNU General Public License
-License URI: license.txt
+License: GNU General Public License v2.0
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: clean, book, simple, serious, professional
+
+Clean and Sober WordPress theme, copyright 2012 Christopher Finke. Clean and Sober is distributed under the terms of the GNU GPLv2.
 */
 
 /**
@@ -297,11 +299,11 @@ body.single-format-aside .entry-header .entry-title {
 		font-size: 16px;
 		font-weight: bold;
 	}
-	
+
 	/**
 	 * Tables
 	 */
-	
+
 	.entry-content table {
 		font-family: "Courier New", "Monaco", monospace;
 		font-size: 14px;
@@ -325,6 +327,8 @@ body.single-format-aside .entry-header .entry-title {
 		border: 1px solid #eee;
 		margin-top: 8px;
 		margin-bottom: 8px;
+		border-radius: 3px;
+	    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	}
 	.entry-content img,
 	img[class*="align"],
@@ -373,6 +377,9 @@ body.single-format-aside .entry-header .entry-title {
 		border: none;
 		height: auto;
 		max-width: 90%;
+		border: 1px solid #eee;
+		border-radius: 3px;
+	    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 	}
 	#content .gallery dd {
 		margin: 0;
@@ -388,11 +395,11 @@ nav > div {
 	text-align: center;
 }
 
-nav > div:first-child {
+nav > div.nav-previous {
 	text-align: left;
 }
 
-nav > div:last-child {
+nav > div.nav-next {
 	text-align: right;
 }
 
@@ -413,7 +420,7 @@ nav > div:last-child {
 	padding: 20px 0 0;
 	width: 100%;
 }
-	
+
 nav.nav-previous {
 	display: block;
 	float: left;
@@ -636,3 +643,103 @@ ul.footer-widgets {
 	list-style-type: none;
 }
 
+/* Menu, courtesy of Twenty Twelve */
+
+/* Navigation Menu */
+.main-navigation {
+	text-align: left;
+	padding: 0 20px;
+	border-bottom: 1px solid #ccc;
+	text-align: center;
+}
+.main-navigation li {
+	margin-top: 24px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	text-align: left;
+}
+.main-navigation a {
+	color: #5e5e5e;
+}
+.main-navigation a:hover {
+	color: #21759b;
+}
+.main-navigation ul.nav-menu,
+.main-navigation div.nav-menu > ul {
+	display: none;
+}
+.main-navigation ul.nav-menu.toggled-on,
+.menu-toggle {
+	display: inline-block;
+}
+
+/* Minimum width of 600 pixels. */
+.main-navigation ul.nav-menu,
+.main-navigation div.nav-menu > ul {
+	border-bottom: 1px solid #ededed;
+	border-top: 1px solid #ededed;
+	display: inline-block !important;
+	text-align: left;
+	width: 100%;
+}
+.main-navigation ul {
+	margin: 0;
+	text-indent: 0;
+}
+.main-navigation li a,
+.main-navigation li {
+	display: inline-block;
+	text-decoration: none;
+	letter-spacing: 1px;
+}
+.main-navigation li a {
+	border-bottom: 0;
+	color: #6a6a6a;
+	line-height: 3.692307692;
+	text-transform: uppercase;
+}
+.main-navigation li a:hover {
+	color: #000;
+}
+.main-navigation li {
+	margin: 0 40px 0 0;
+	margin: 0 2.857142857rem 0 0;
+	position: relative;
+}
+.main-navigation li ul {
+	display: none;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+	z-index: 1;
+	background-color: #fff !important;
+	border: 1px solid #ccc !important;
+	width: 180px;
+}
+.main-navigation li ul ul {
+	top: 0;
+	left: 100%;
+}
+.main-navigation ul li:hover > ul {
+	display: block;
+}
+.main-navigation li ul li a {
+	border-bottom: 1px solid #ededed;
+	display: block;
+	font-size: 12px;
+	line-height: 2.181818182;
+	padding: 8px 10px;
+	width: 178px;
+}
+.main-navigation li ul li a:hover {
+	background: #efefef;
+	color: #444;
+}
+.main-navigation .current-menu-item > a,
+.main-navigation .current-menu-ancestor > a,
+.main-navigation .current_page_item > a,
+.main-navigation .current_page_ancestor > a {
+	color: #636363;
+	font-weight: bold;
+}

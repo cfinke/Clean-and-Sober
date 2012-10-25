@@ -3,7 +3,7 @@
 	<div id="content" role="main">
 		<?php if ( have_posts() ) { ?>
 			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'clean-and-sober' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<h1 class="page-title"><?php printf( esc_html( __( 'Search Results for: %s', 'clean-and-sober' ) ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header>
 
 			<div class="tiles">
@@ -17,16 +17,16 @@
 					</div>
 				<?php } ?>
 			</div>
-		
+
 			<?php clean_and_sober_content_nav( 'nav-below' ); ?>
 		<?php } else { ?>
 			<article id="post-0" class="post no-results not-found">
 				<header class="entry-header">
-					<h1 class="entry-title"><?php _e( 'Nothing Found', 'clean-and-sober' ); ?></h1>
+					<h1 class="entry-title"><?php esc_html_e( 'Nothing Found', 'clean-and-sober' ); ?></h1>
 				</header>
 
 				<div class="entry-content">
-					<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'clean-and-sober' ); ?></p>
+					<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'clean-and-sober' ); ?></p>
 					<?php get_search_form(); ?>
 				</div>
 			</article>
