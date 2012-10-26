@@ -610,6 +610,11 @@ a.comment-reply-link {
 	margin-top: 12px;
 }
 
+#respond label {
+	margin-right: 1rem;
+	margin-right: 15px;
+}
+
 /**
  * Site Footer
  */
