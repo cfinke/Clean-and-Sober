@@ -526,17 +526,17 @@ div.comment-content {
 }
 ol.commentlist li {
     clear: both;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
     margin: 0 !important;
     background: #fff;
+	border-left: 1px solid #ccc;
+}
+ol.commentlist li > article {
+	padding: 10px;
+    border-top: 1px solid #ccc;
 }
 
-
-ul.children li {
-	padding-left: 0;
-}
-.commentlist .alt {
+.comment #respond {
+	padding-left: 10px;
 }
 h3#comments {
     clear: both;
@@ -596,9 +596,13 @@ ol.commentlist cite {
 }
 
 .commentlist li.bypostauthor {
-	background-color: #eefeee;
-	padding-left: 12px;
 	margin-bottom: 6px;
+	padding: 0px;
+}
+
+.commentlist li.bypostauthor > article {
+	background-color: #eefeee;
+	padding: 12px;
 }
 
 a.comment-reply-link {
@@ -608,6 +612,10 @@ a.comment-reply-link {
 
 #reply-title {
 	margin-top: 12px;
+}
+
+#respond {
+	border-top: 1px solid #ccc;
 }
 
 #respond label {
