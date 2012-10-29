@@ -156,7 +156,7 @@ div.tiles {
 	border-bottom: 1px solid #ccc;
 }
 
-.tile {
+.tile, .infinite-loader, #infinite-handle  {
 	float: left;
 	padding: 16px;
 	text-align: center;
@@ -167,21 +167,21 @@ div.tiles {
 	border-color: #e0e0e0;
 }
 
-.tile:nth-child(odd) {
+div.tile:nth-of-type(odd), .infinite-loader, #infinite-handle {
 	clear: left;
 	border-width: 1px 1px 0 0;
 }
 
-.tile:nth-child(even) {
+div.tile:nth-of-type(even) {
 	border-width: 1px 0 0 1px;
 	margin-left: -1px;
 }
 
-.tile:nth-child(1), .tile:nth-child(2) {
+div.tile:nth-of-type(1), div.tile:nth-of-type(2) {
 	border-top-width: 0;
 }
 
-.tile:nth-child(odd):last-child {
+div.tile:nth-of-type(odd):last-child, .infinite-loader, #infinite-handle  {
 	width: 755px;
 	border-right-width: 0px;
 }
@@ -754,4 +754,29 @@ ul.footer-widgets {
 .main-navigation .current_page_ancestor > a {
 	color: #636363;
 	font-weight: bold;
+}
+
+.infinite-loader {
+	margin: 0;
+	padding-left: 360px !important;
+}
+
+#infinite-handle {
+	line-height: 166px;
+}
+
+#infinite-handle span {
+	background-color: #fff;
+	color: #404040;
+	font-size: 28px;
+	font-family: Baskerville, "Times New Roman", serif;
+	border: 0;
+}
+
+#infinite-handle span:before {
+	font-size: 24px;
+}
+
+#infinite-handle span:hover:before {
+	color: #404040;
 }

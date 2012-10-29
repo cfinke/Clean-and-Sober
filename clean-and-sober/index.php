@@ -3,7 +3,7 @@
 	<div id="content" role="main">
 
 		<?php if ( have_posts() ) { ?>
-			<div class="tiles">
+			<div class="tiles" id="posts-container">
 				<?php while ( have_posts() ) { the_post(); ?>
 					<div <?php post_class( 'tile' ); ?>>
 						<p class="timestamp"><?php the_time('F jS, Y') ?></p>

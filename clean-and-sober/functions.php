@@ -47,9 +47,33 @@ if ( ! function_exists( 'clean_and_sober_setup' ) ) {
 		 * There's a menu available at the top of the page under the masthead.
 		 */
 		register_nav_menu( 'primary', __( 'Primary Menu', 'clean-and-sober' ) );
+		
+		add_theme_support( 'infinite-scroll', array(
+			'container' => 'posts-container',
+			'footer_widgets' => 'footer-widgets',
+			'wrapper' => false,
+			'posts_per_page' => 8,
+			'render' => 'clean_and_sober_infinite_scroll_render'
+		) );
 	}
 }
 add_action( 'after_setup_theme', 'clean_and_sober_setup' );
+
+function clean_and_sober_infinite_scroll_render() {
+	while ( have_posts() ) {
+		the_post();
+		
+		?>
+		<div <?php post_class( 'tile' ); ?>>
+			<p class="timestamp"><?php the_time('F jS, Y') ?></p>
+			<h2 class="entry-title"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+			<?php if ( ! empty( $post->post_excerpt ) ) { ?>
+				<p class="body"><?php echo get_the_excerpt(); ?></p>
+			<? } ?>
+		</div>
+		<?php
+	}
+}
 
 /**
  * Enqueue scripts and styles
