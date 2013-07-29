@@ -388,7 +388,7 @@ body.single-format-aside .entry-header .entry-title {
  * Site navigation
  */
 
-nav > div {
+nav > div, nav > form {
 	width: 33%;
 	float: left;
 	text-align: center;
@@ -640,19 +640,6 @@ a.comment-reply-link {
 
 .site-footer a {
 	text-decoration: none;
-}
-
-.footer-widgets {
-	width: 33%;
-	float: left;
-}
-
-ul.footer-widgets {
-	margin: 0;
-}
-
-.footer-widgets li {
-	list-style-type: none;
 }
 
 /* Menu, courtesy of Twenty Twelve */

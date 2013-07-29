@@ -50,7 +50,6 @@ if ( ! function_exists( 'clean_and_sober_setup' ) ) {
 		
 		add_theme_support( 'infinite-scroll', array(
 			'container' => 'posts-container',
-			'footer_widgets' => 'footer-widgets',
 			'wrapper' => false,
 			'posts_per_page' => 8,
 			'render' => 'clean_and_sober_infinite_scroll_render'
@@ -144,14 +143,6 @@ function clean_and_sober_default_title( $title ) {
 }
 
 add_filter( 'the_title', 'clean_and_sober_default_title' );
-
-function clean_and_sober_widgets() {
-	register_sidebar( array(
-		'id' => 'footer-widgets'
-	) );
-}
-
-add_action( 'widgets_init', 'clean_and_sober_widgets' );
 
 function clean_and_sober_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'clean_and_sober_default_author_section', array(
